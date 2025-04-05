@@ -10,6 +10,7 @@ import Layout from './Layout';
 import Home from './Home';
 import ArticleDetail from './ArticleDetail';
 import ZeroGArticle from './ZeroGArticle';
+import AboutPage from './AboutPage'; // Import AboutPage component
 
 // ScrollToTop component for handling page transitions
 function ScrollToTop() {
@@ -38,20 +39,7 @@ const NotFound = () => (
   </div>
 );
 
-// Simple placeholder pages for About and Services
-const About = () => (
-  <div className="py-12">
-    <Helmet>
-      <title>Giới thiệu | B.Node</title>
-      <meta name="description" content="Thông tin về B.Node - Phân tích blockchain và dự án crypto" />
-    </Helmet>
-    <h1 className="text-3xl font-bold text-white mb-6">Giới thiệu</h1>
-    <div className="bg-gray-800 rounded-lg p-6 text-gray-300">
-      <p>Trang giới thiệu bản thân sẽ được phát triển sau.</p>
-    </div>
-  </div>
-);
-
+// Simple placeholder page for Services
 const Services = () => (
   <div className="py-12">
     <Helmet>
@@ -115,7 +103,7 @@ function App() {
                 
                 <Route path="/about" element={
                   <PageTransition>
-                    <About />
+                    <AboutPage />
                   </PageTransition>
                 } />
                 <Route path="/services" element={
