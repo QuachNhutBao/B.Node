@@ -11,15 +11,16 @@ import Home from './Home';
 import ArticleDetail from './ArticleDetail';
 import ZeroGArticle from './ZeroGArticle';
 import AboutPage from './AboutPage'; // Import AboutPage component
+import ServicesPage from './ServicesPage'; // Import ServicesPage component
 
 // ScrollToTop component for handling page transitions
 function ScrollToTop() {
   const { pathname } = useLocation();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  
+
   return null;
 }
 
@@ -39,20 +40,6 @@ const NotFound = () => (
   </div>
 );
 
-// Simple placeholder page for Services
-const Services = () => (
-  <div className="py-12">
-    <Helmet>
-      <title>Dịch vụ | B.Node</title>
-      <meta name="description" content="Các dịch vụ của B.Node - Phân tích dự án, tư vấn crypto và blockchain" />
-    </Helmet>
-    <h1 className="text-3xl font-bold text-white mb-6">Dịch vụ</h1>
-    <div className="bg-gray-800 rounded-lg p-6 text-gray-300">
-      <p>Trang dịch vụ sẽ được phát triển sau.</p>
-    </div>
-  </div>
-);
-
 function App() {
   return (
     <LanguageProvider>
@@ -64,7 +51,7 @@ function App() {
             <meta name="keywords" content="blockchain, crypto, cryptocurrency, bitcoin, ethereum, 0g, decentralized ai, deaios" />
             <link rel="canonical" href="https://b-node.com" />
           </Helmet>
-          
+
           <ScrollToTop />
           <Layout>
             <AnimatePresence mode="wait">
@@ -74,33 +61,33 @@ function App() {
                     <Home />
                   </PageTransition>
                 } />
-                
+
                 {/* SEO-friendly routes for articles */}
                 <Route path="/article/0g-decentralized-ai" element={
                   <PageTransition>
                     <ZeroGArticle />
                   </PageTransition>
                 } />
-                
+
                 <Route path="/article/bitcoin-king-of-crypto" element={
                   <PageTransition>
                     <ArticleDetail specialId="bitcoin" />
                   </PageTransition>
                 } />
-                
+
                 <Route path="/article/ethereum-smart-contract" element={
                   <PageTransition>
                     <ArticleDetail specialId="ethereum" />
                   </PageTransition>
                 } />
-                
+
                 {/* Legacy support for old ID-based URLs */}
                 <Route path="/article/:id" element={
                   <PageTransition>
                     <ArticleDetail />
                   </PageTransition>
                 } />
-                
+
                 <Route path="/about" element={
                   <PageTransition>
                     <AboutPage />
@@ -108,7 +95,7 @@ function App() {
                 } />
                 <Route path="/services" element={
                   <PageTransition>
-                    <Services />
+                    <ServicesPage />
                   </PageTransition>
                 } />
                 <Route path="*" element={<NotFound />} />
