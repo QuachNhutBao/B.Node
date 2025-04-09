@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
 import ArticleCard from './ArticleCard';
-import { ZeroGIcon, BitcoinIcon, EthereumIcon } from './ArticleIcons';
 import WelcomeSection from './WelcomeSection';
 import { motion } from 'framer-motion';
 
@@ -11,22 +10,28 @@ const Home = () => {
   const articles = [
     {
       id: 1,
-      title: "Phân tích dự án 0g: Lưu trữ phi tập trung",
-      summary: "Khám phá 0g - giải pháp lưu trữ phi tập trung trên blockchain với khả năng mở rộng và bảo mật cao. Tìm hiểu cách dự án này thay đổi cách thức lưu trữ dữ liệu.",
-      icon: ZeroGIcon
+      title: "Bí Mật Dưới Lớp Không Trọng Lực: Hành Trình Của 0G",
+      titleEn: "The Secret Beneath Zero Gravity: The Journey of 0G",
+      summary: "Khám phá câu chuyện về 0G – hệ điều hành AI phi tập trung đầu tiên trên blockchain, nơi AI trở thành tài sản công và tự do như không trọng lực.",
+      summaryEn: "Discover the story of 0G – the first decentralized AI operating system on blockchain, where AI becomes a public good, free as zero gravity.",
+      icon: "/images/0g-logo.png", // Đường dẫn đúng
     },
     {
       id: 2,
       title: "Bitcoin: Vua của Crypto",
+      titleEn: "Bitcoin: King of Crypto",
       summary: "Bitcoin vẫn là đồng tiền số hàng đầu với tiềm năng lớn trong tương lai, dù đối mặt với nhiều thách thức. Phân tích sâu về triển vọng và rủi ro.",
-      icon: BitcoinIcon
+      summaryEn: "Bitcoin remains the leading cryptocurrency with great potential, despite facing many challenges. An in-depth analysis of its prospects and risks.",
+      icon: "/images/bitcoin-logo.png", // Đường dẫn đúng
     },
     {
       id: 3,
       title: "Ethereum: Nền tảng hợp đồng thông minh",
+      titleEn: "Ethereum: The Smart Contract Platform",
       summary: "Ethereum dẫn đầu về smart contract, nhưng có thách thức về khả năng mở rộng và phí giao dịch cao. Tìm hiểu các giải pháp layer 2 và tương lai của ETH.",
-      icon: EthereumIcon
-    }
+      summaryEn: "Ethereum leads in smart contracts but faces challenges with scalability and high fees. Explore Layer 2 solutions and the future of ETH.",
+      icon: "/images/ethereum-logo.png", // Đường dẫn đúng
+    },
   ];
 
   return (
@@ -55,8 +60,8 @@ const Home = () => {
             <ArticleCard
               key={article.id}
               id={article.id}
-              title={article.title}
-              summary={article.summary}
+              title={language === 'vi' ? article.title : article.titleEn}
+              summary={language === 'vi' ? article.summary : article.summaryEn}
               IconComponent={article.icon}
             />
           ))}

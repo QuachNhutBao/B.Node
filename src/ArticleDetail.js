@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ZeroGIcon, BitcoinIcon, EthereumIcon } from './ArticleIcons';
 import { useLanguage } from './LanguageContext';
 import { Helmet } from 'react-helmet';
 
@@ -21,9 +20,9 @@ const ArticleDetail = () => {
       case 'ethereum':
         articleId = 3;
         break;
-      // 0G article is handled by ZeroGArticle component
       default:
         articleId = null;
+        break;
     }
   } else {
     // If no specialId, use ID from URL
@@ -42,6 +41,8 @@ const ArticleDetail = () => {
       case 3:
         navigate('/article/ethereum-smart-contract', { replace: true });
         break;
+      default:
+        break;
     }
   }, [articleId, navigate]);
 
@@ -49,33 +50,33 @@ const ArticleDetail = () => {
   const articles = [
     {
       id: 1,
-      title: "Phân tích dự án 0g: Lưu trữ phi tập trung",
-      icon: ZeroGIcon,
+      title: "Bí Mật Dưới Lớp Không Trọng Lực: Hành Trình Của 0G",
+      icon: "/images/0g-logo.png", // Đường dẫn đúng
       slug: "0g-decentralized-ai",
-      content: "Đây là nội dung chi tiết về dự án 0g. Vui lòng xem trang chi tiết."
+      content: "Đây là nội dung chi tiết về dự án 0G. Vui lòng xem trang chi tiết.",
     },
     {
       id: 2,
       title: "Bitcoin: Vua của Crypto",
-      icon: BitcoinIcon,
+      icon: "/images/bitcoin-logo.png", // Đường dẫn đúng
       slug: "bitcoin-king-of-crypto",
       content: "Bitcoin vẫn là đồng tiền số hàng đầu với tiềm năng lớn trong tương lai, dù đối mặt với nhiều thách thức. Kể từ khi ra mắt vào năm 2009 bởi Satoshi Nakamoto, Bitcoin đã trở thành tài sản kỹ thuật số có giá trị nhất thế giới...",
       seo: {
         title: "Bitcoin: Vua của Crypto - Phân tích toàn diện | B.Node",
-        description: "Tìm hiểu tại sao Bitcoin vẫn là đồng tiền số hàng đầu dù đối mặt với thách thức. Phân tích về tiềm năng và rủi ro của BTC từ chuyên gia B.Node."
-      }
+        description: "Tìm hiểu tại sao Bitcoin vẫn là đồng tiền số hàng đầu dù đối mặt với thách thức. Phân tích về tiềm năng và rủi ro của BTC từ chuyên gia B.Node.",
+      },
     },
     {
       id: 3,
       title: "Ethereum: Nền tảng hợp đồng thông minh",
-      icon: EthereumIcon,
+      icon: "/images/ethereum-logo.png", // Đường dẫn đúng
       slug: "ethereum-smart-contract",
       content: "Ethereum dẫn đầu về smart contract, nhưng có thách thức về khả năng mở rộng và phí giao dịch cao. Được phát triển bởi Vitalik Buterin và ra mắt vào năm 2015, Ethereum đã cách mạng hóa blockchain bằng cách giới thiệu khái niệm hợp đồng thông minh...",
       seo: {
         title: "Ethereum: Nền tảng hợp đồng thông minh - Phân tích chi tiết | B.Node",
-        description: "Phân tích chuyên sâu về Ethereum - nền tảng hợp đồng thông minh hàng đầu, những thách thức về mở rộng và giải pháp Layer 2."
-      }
-    }
+        description: "Phân tích chuyên sâu về Ethereum - nền tảng hợp đồng thông minh hàng đầu, những thách thức về mở rộng và giải pháp Layer 2.",
+      },
+    },
   ];
 
   const article = articles.find(article => article.id === articleId);
@@ -107,18 +108,18 @@ const ArticleDetail = () => {
     "image": `https://b-node.com/${article.slug}-image.png`,
     "author": {
       "@type": "Organization",
-      "name": "B.Node"
+      "name": "B.Node",
     },
     "publisher": {
       "@type": "Organization",
       "name": "B.Node",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://b-node.com/logo.png"
-      }
+        "url": "https://b-node.com/logo.png",
+      },
     },
     "datePublished": "2025-04-02",
-    "dateModified": "2025-04-02"
+    "dateModified": "2025-04-02",
   };
 
   return (
@@ -131,20 +132,22 @@ const ArticleDetail = () => {
         <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
       <div className="py-8">
         <Link to="/" className="text-blue-400 hover:text-blue-300 mb-4 inline-block">
-          &larr; {language === 'vi' ? 'Quay lại trang chủ' : 'Back to home'}
+          ← {language === 'vi' ? 'Quay lại trang chủ' : 'Back to home'}
         </Link>
 
         <article className="bg-gray-800 rounded-lg shadow-lg p-6" itemScope itemType="https://schema.org/Article">
           <div className="flex justify-center mb-6">
             <div className="bg-gray-700 p-4 rounded-full">
-              <IconComponent className="w-16 h-16 text-blue-400" />
+              <img
+                src={IconComponent}
+                alt={article.title}
+                className="w-16 h-16 object-contain"
+              />
             </div>
           </div>
 
