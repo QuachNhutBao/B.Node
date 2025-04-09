@@ -346,40 +346,39 @@ const ServicesPage = () => {
           </motion.div>
         ))}
 
-// Tìm đoạn code này trong ServicesPage.js (khoảng dòng 390-420)
-<motion.div 
-  className="bg-blue-900/40 backdrop-blur-sm rounded-xl p-8 mt-12 mb-10 shadow-xl border border-blue-800/50 text-center"
-  variants={itemVariants}
->
-  <p className="text-lg text-gray-100 mb-6">{currentContent.contactCTA}</p>
-  
-  <div className="flex justify-center">
-    <div className="bg-gray-800/80 px-5 py-3 rounded-lg flex items-center border border-gray-700">
-      <span className="text-gray-200 mr-3 font-medium">quachnhutbao@gmail.com</span>
-      <button 
-        onClick={copyEmail}
-        className="text-blue-400 hover:text-blue-300 focus:outline-none bg-blue-900/30 hover:bg-blue-800/50 rounded-md px-3 py-1.5 transition-all duration-200"
-        aria-label={currentContent.emailCopy}
-      >
-        {copied ? (
-          <span className="flex items-center text-green-400">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            {currentContent.emailCopied}
-          </span>
-        ) : (
-          <span className="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            {currentContent.emailCopy}
-          </span>
-        )}
-      </button>
-    </div>
-  </div>
-</motion.div>
+        <motion.div
+          className="bg-blue-900/40 backdrop-blur-sm rounded-xl p-8 mt-12 mb-10 shadow-xl border border-blue-800/50 text-center"
+          variants={itemVariants}
+        >
+          <p className="text-lg text-gray-100 mb-6">{currentContent.contactCTA}</p>
+
+          <div className="flex justify-center">
+            <div className="bg-gray-800/80 px-5 py-3 rounded-lg flex items-center border border-gray-700">
+              <span className="text-gray-200 mr-3 font-medium">quachnhutbao@gmail.com</span>
+              <button
+                onClick={copyEmail}
+                className="text-blue-400 hover:text-blue-300 focus:outline-none bg-blue-900/30 hover:bg-blue-800/50 rounded-md px-3 py-1.5 transition-all duration-200"
+                aria-label={currentContent.emailCopy}
+              >
+                {copied ? (
+                  <span className="flex items-center text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    {currentContent.emailCopied}
+                  </span>
+                ) : (
+                  <span className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    {currentContent.emailCopy}
+                  </span>
+                )}
+              </button>
+            </div>
+          </div>
+        </motion.div>
 
         <motion.div
           className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-700 text-sm text-gray-400 italic text-center"
